@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %} {{ clubs.country.name }} {% endblock %}
+
+{% block content %}
+<div class="nav">
+    <h2>–{{ clubs.first.country.name }} –</h2>
+</div>
+
+<div class="content" style="margin-top: 170px;">
+    {% if clubs %}
+    <div class="clubs">
+        {% for club in clubs %}
+        <div class="club">
+            <a href="/club/{{club.id}}">
+                <img src="{{ club.logo.url }}" alt=""/>
+                {{ club.name }}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p> clubs not found </p>
+    {% endif %}
+</div>
+{% endblock %}
